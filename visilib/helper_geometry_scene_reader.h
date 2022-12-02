@@ -182,7 +182,7 @@ namespace visilib
             {
                 size_t vertexCount = tokens.size() - 1;
 
-                if (vertexCount >= 3)
+                if (vertexCount == 3)
                 {
                     faceCount++;
 
@@ -192,6 +192,9 @@ namespace visilib
                         indices.push_back(static_cast<int>(vertexIndex - 1 - firstVertexIndex));
                     }
                     indexCount += vertexCount;
+                } else {
+                    std::cerr << "Only triangular faces are supported\n";
+                    return false;
                 }
             }
         }
